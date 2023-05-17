@@ -14,9 +14,9 @@ public class Conta_bancaria {
     }
 
     void sacar(double valor) {
-        if(valor<saldo){
+        if (valor < saldo) {
             this.saldo -= valor;
-        }else{
+        } else {
             System.out.println("Fundos insuficientes para realizar operação");
         }
     }
