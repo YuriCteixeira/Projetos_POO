@@ -21,7 +21,13 @@ public class Conta_bancaria {
         }
     }
 
-    void transferir() {
+    void transferir(Conta_bancaria contabancaria, double valor) {//Método c/ parâmetrothis
+         if (valor <= saldo) {
+        this.sacar(valor);
+        contabancaria.saldo += valor;
+         }else{
+        System.out.println("Fundos insuficientes para realizar a operação");
+         }
     }
 
     String consultar_saldo() {
