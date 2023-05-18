@@ -9,6 +9,7 @@ public class BancoBrasil {
         //Instanciando um objeto tipo ContaBancaria e referenciando na variavel contabancaria1//
         Conta_bancaria contaBancaria1 = new Conta_bancaria();
         Conta_bancaria contaBancaria2 = new Conta_bancaria();
+        usuario user1 = new usuario();
         /* Uso nas versões mais atuais da jdk
        var contaBancaria1 = new Conta_bancaria();
        
@@ -32,15 +33,22 @@ public class BancoBrasil {
         contaBancaria1.agencia = input.next();
         System.out.println("Digite a conta:");
         contaBancaria1.conta = input.next();
-        System.out.println("Digite o proprietário:");
-        contaBancaria1.proprietario = input.next();
+        //Construção e inserção de dados do usuário
+        System.out.println("--Dados do Usuário--");
+        System.out.println("Digite o nome do cliente:");
+        user1.nome = input.next();
+        System.out.println("Digite o sobrenome do cliente:");
+        user1.sobrenome = input.next();
+        System.out.println("Digite o telefone do cliente:");
+        user1.telefone = input.next();
+        contaBancaria1.proprietario = user1;
         System.out.println("Digite o saldo inicial:");
         contaBancaria1.saldo = input.nextDouble();
         System.out.println("Digite o valor de depósito:");
         contaBancaria1.depositar(input.nextDouble());
         System.out.println(contaBancaria1.agencia + "\n"
                 + contaBancaria1.conta + "\n"
-                + contaBancaria1.proprietario + "\n"
+                + contaBancaria1.proprietario.imprimir_info() + "\n"
                 + contaBancaria1.consultar_saldo());
         System.out.println("Digite um valor para saque:");
         contaBancaria1.sacar(input.nextDouble());
