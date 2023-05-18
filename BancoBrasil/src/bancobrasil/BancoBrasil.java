@@ -27,7 +27,7 @@ public class BancoBrasil {
          */
 
         Scanner input = new Scanner(System.in);
-        System.out.println("Bem-vindo(a) ao Banco do Brasil");
+        System.out.println("--Bem-vindo(a) ao Banco do Brasil--");
         System.out.println("Cadastro de Contas");
         System.out.println("Digite a agência:");
         contaBancaria1.agencia = input.next();
