@@ -3,12 +3,56 @@ package bancobrasil;
 public class Conta_bancaria {
 
     //atributos da classe//
-    String agencia;
-    String conta;
-    double saldo;
-    usuario proprietario;
+    private String agencia;
+    private String conta;
+    private double saldo;
+    private usuario proprietario;
 
-    //métodos da
+    //Construtor
+    public Conta_bancaria() {
+    }
+
+    public Conta_bancaria(String agencia, String conta, double saldo, usuario proprietario) {
+        this.agencia = agencia;
+        this.conta = conta;
+        this.saldo = saldo;
+        this.proprietario = proprietario;
+    }
+
+    //Métodos getters e setters
+    public String getagencia() {
+        return this.agencia;
+    }
+
+    public void setagencia(String agencia) {
+        this.agencia = agencia;
+    }
+
+    public String getconta() {
+        return this.conta;
+    }
+
+    public void setconta(String conta) {
+        this.conta = conta;
+    }
+
+    public double getsaldo() {
+        return this.saldo;
+    }
+
+    public void setsaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public usuario getproprietario() {
+        return this.proprietario;
+    }
+
+    public void setproprietario(usuario proprietario) {
+        this.proprietario = proprietario;
+    }
+
+    //métodos 
     void depositar(double valor) { //Método com parâmetro
         this.saldo += valor;
     }
@@ -22,12 +66,12 @@ public class Conta_bancaria {
     }
 
     void transferir(Conta_bancaria contabancaria, double valor) {//Método c/ parâmetrothis
-         if (valor <= saldo) {
-        this.sacar(valor);
-        contabancaria.saldo += valor;
-         }else{
-        System.out.println("Fundos insuficientes para realizar a operação");
-         }
+        if (valor <= saldo) {
+            this.sacar(valor);
+            contabancaria.saldo += valor;
+        } else {
+            System.out.println("Fundos insuficientes para realizar a operação");
+        }
     }
 
     String consultar_saldo() {

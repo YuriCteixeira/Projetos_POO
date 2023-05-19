@@ -1,4 +1,3 @@
-
 package Bercario_atividade;
 
 import java.util.Date;
