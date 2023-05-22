@@ -26,7 +26,7 @@ public class usuario {
         return this.nome;
     }
 
-    public void setnome(String agencia) {
+    public void setnome(String nome) {
         this.nome = nome;
     }
 
@@ -42,7 +42,7 @@ public class usuario {
         return this.telefone;
     }
 
-    public void settelefone(String agencia) {
+    public void settelefone(String telefone) {
         this.telefone = telefone;
     }
 
