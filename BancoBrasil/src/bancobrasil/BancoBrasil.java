@@ -98,19 +98,19 @@ public class BancoBrasil {
                         for (int i = 0; i < 5; i++) {
                             System.out.println(i + "- " + users[i].getnome() + " " + users[i].getsobrenome());
                         }
-                            System.out.println("Selecione o cliente: ");
-                            int userOpcao = input.nextInt();
-                            if (userOpcao == 1) {
-                                conta.setproprietario(users[userOpcao-1]);
-                                System.out.println("Digite o saldo inicial:");
-                                conta.setsaldo(input.nextDouble());
-                                System.out.println("Digite o valor de depósito:");
-                                conta.depositar(input.nextDouble());
-                            } else {
-                                System.out.println("Usuário não cadastrado");
-                            }
-                            break;
-                        
+                        System.out.println("Selecione o cliente: ");
+                        int userOpcao = input.nextInt();
+                        if (userOpcao == 1) {
+                            conta.setproprietario(users[userOpcao - 1]);
+                            System.out.println("Digite o saldo inicial:");
+                            conta.setsaldo(input.nextDouble());
+                            System.out.println("Digite o valor de depósito:");
+                            conta.depositar(input.nextDouble());
+                        } else {
+                            System.out.println("Usuário não cadastrado");
+                        }
+                        break;
+
                     }
                 case 3:
                     System.out.println("***SEE YA!***");
