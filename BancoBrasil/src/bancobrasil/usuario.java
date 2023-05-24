@@ -8,7 +8,6 @@ public class usuario {
     private String nome;
     private String sobrenome;
     private String telefone;
-    private Date dataRegistro = new Date();
 
     //Construtor
     public usuario() {
@@ -46,18 +45,10 @@ public class usuario {
         this.telefone = telefone;
     }
 
-    public Date getdataRegistro() {
-        return this.dataRegistro;
-    }
-
-    public void setdataRegistro(Date dataRegistro) {
-        this.dataRegistro = dataRegistro;
-    }
-
     //Métodos
-    String imprimir_info() {
-        return String.format("Nome: %s\nSobrenome: %s\nTelefone: %s\nData de registro: %s",
-                this.nome, this.sobrenome, this.telefone, this.dataRegistro);
+    public String imprimir_info() {
+        return String.format("INFORMAÇÕES DO CLIENTE\nNome: %s\nSobrenome: %s\nTelefone: %s",
+                this.nome, this.sobrenome, this.telefone);
 
     }
 }

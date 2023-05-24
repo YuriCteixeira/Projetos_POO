@@ -1,6 +1,7 @@
 /*Yuri Carvalho Teixeira*/
 package bancobrasil;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BancoBrasil {
@@ -10,6 +11,8 @@ public class BancoBrasil {
         Conta_bancaria contaBancaria1 = new Conta_bancaria();
         Conta_bancaria contaBancaria5 = new Conta_bancaria();
         usuario user1 = new usuario();
+        int qtdCadastro = 0;
+
         /* Uso nas versões mais atuais da jdk
        var contaBancaria1 = new Conta_bancaria();
        
@@ -57,9 +60,28 @@ public class BancoBrasil {
         Scanner input = new Scanner(System.in);
         int opcao = 0;
         usuario user;
-        usuario[] users = new usuario[5];
+        boolean verificador = false;
+        ArrayList<usuario> users = new ArrayList<>();
+        ArrayList<Gerente> gerentes = new ArrayList<>();
         Conta_bancaria conta = new Conta_bancaria();
-
+        GerenteRepository db_gerente = new GerenteRepository();
+        
+        
+        gerentes = db_gerente.addGerente();
+        do{
+        System.out.println("~*~*~Seja bem-vindo(a) ao Banco do Brasil~*~*~");
+        System.out.println("Login: ");
+        String login = input.next();
+        System.out.println("Password: ");
+        String password = input.next();
+        for(Gerente g : gerentes){
+        if(g.getLogin().equals(login) && g.getPassword().equals(password)){
+        verificador = true;    
+        }
+        }
+        //String notValidate = "", validate = "Usuário ou senha incorretos!"   ; 
+        System.out.printf("%s\n", verificador == true ? "":"Usuário ou senha incorretos!");
+        }while(verificador != true);
         while (opcao != 3) {
             //1ª Tela
 
@@ -71,17 +93,20 @@ public class BancoBrasil {
             opcao = input.nextInt();
             switch (opcao) {
                 case 1:
-                    for (int i = 0; i < 5; i++) {
-                        user = new usuario();
-                        System.out.println("***CADASTRO CLIENTE***");
+                    System.out.println("***CADASTRO CLIENTE***");
+                    System.out.println("Quantidade de cadastros:");
+                    qtdCadastro = input.nextInt();
+                    for (int i = 0; i < qtdCadastro; i++) {
+                        user = new Cliente();
+
                         System.out.println(" Nome:");
                         user.setnome(input.next());
                         System.out.println("Sobrenome:");
                         user.setsobrenome(input.next());
                         System.out.println("Telefone:");
                         user.settelefone(input.next());
-                        System.out.println("1- " + user.getnome());
-                        users[i] = user;
+                        System.out.println((i + 1) + "- " + user.getnome());
+                        users.add(user);
                     }
                     break;
                 case 2:
@@ -92,20 +117,19 @@ public class BancoBrasil {
                     System.out.println("Conta:");
                     conta.setconta(input.next());
                     System.out.println("Clientes cadastrados:");
-                    if (users[0] == null) {
+                    if (users.size() == 0) {
                         System.out.println("Vetor vazio");
                     } else {
-                        for (int i = 0; i < 5; i++) {
-                            System.out.println(i + "- " + users[i].getnome() + " " + users[i].getsobrenome());
+                        for (int i = 0; i < qtdCadastro; i++) {
+                            System.out.println((i + 1) + "- " + users.get(i).getnome() + " " + users.get(i).getsobrenome());
                         }
                         System.out.println("Selecione o cliente: ");
                         int userOpcao = input.nextInt();
-                        if (userOpcao == 1) {
-                            conta.setproprietario(users[userOpcao - 1]);
+                        //Serão listados os clientes cadastrados
+                        if (userOpcao >= 1) {
+                            conta.setproprietario(users.get(userOpcao - 1));
                             System.out.println("Digite o saldo inicial:");
                             conta.setsaldo(input.nextDouble());
-                            System.out.println("Digite o valor de depósito:");
-                            conta.depositar(input.nextDouble());
                         } else {
                             System.out.println("Usuário não cadastrado");
                         }
