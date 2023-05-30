@@ -10,7 +10,9 @@ public class Cliente extends usuario {
     }
 
     public Cliente(String nome, String sobrenome, String telefone) {
-        super(nome, sobrenome, telefone);
+        this.setnome(nome);
+        this.setsobrenome(sobrenome);
+        this.settelefone(telefone);
 
     }
 
