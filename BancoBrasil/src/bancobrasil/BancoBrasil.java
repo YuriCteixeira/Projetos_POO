@@ -1,6 +1,7 @@
 /*Yuri Carvalho Teixeira*/
 package bancobrasil;
 
+import colegio_jesuitas.usuario;
 import java.util.ArrayList;
 import java.util.Scanner;
 
