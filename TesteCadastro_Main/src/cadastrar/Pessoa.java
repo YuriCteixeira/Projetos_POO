@@ -1,7 +1,7 @@
 package cadastrar;
 
-
 public abstract class Pessoa {
+
     protected String nome;
     protected Data nascimento;
 
@@ -12,8 +12,6 @@ public abstract class Pessoa {
         this.nome = nome;
         this.nascimento = nascimento;
     }
-    
-    
 
     public String getNome() {
         return nome;
@@ -30,7 +28,7 @@ public abstract class Pessoa {
     public void setNascimento(Data nascimento) {
         this.nascimento = nascimento;
     }
-    
+
     //Métodos
     public abstract String ImprimeDados();
 }

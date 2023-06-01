@@ -1,13 +1,13 @@
 package cadastrar;
 
+public class Gerente extends Funcionario {
 
-public class Gerente extends Funcionario{
     private String area;
 
     public Gerente() {
     }
-    
-    public Gerente(String nome, Data nascimento, float salario, String area){
+
+    public Gerente(String nome, Data nascimento, float salario, String area) {
         super(nome, nascimento, salario);
         this.area = area;
     }
@@ -19,13 +19,16 @@ public class Gerente extends Funcionario{
     public void setArea(String area) {
         this.area = area;
     }
-    
+
     @Override
-     public String ImprimeDados(){
-        return String.format("Nome: %s\nData de Nascimento: %s/%s/%s\nSalario: %f\nÁrea: %s\n",super.nome, this.nascimento.getDia(),this.nascimento.getMes(), this.nascimento.getAno(),this.getSalario());
-        }
+    public String ImprimeDados() {
+        return String.format("Nome: %s\nData de Nascimento: %s/%s/%s\nSalario: %.2f\nÁrea: %s\n", super.nome,
+                this.nascimento.getDia(), this.nascimento.getMes(), this.nascimento.getAno(),
+                calculaImposto(this.salario), this.area);
+    }
+
     @Override
-    public double calculaImposto (float salario){
+    public double calculaImposto(float salario) {
         return salario - (salario * 0.05);
     }
 }
