@@ -1,10 +1,10 @@
 package atividade_loja;
 
-class Livro extends Produto {
+public class Livro extends Produto {
 
-    private String autor;
+    protected String autor;
 
-    public Livro(String descricao, String autor) {
+    public Livro(String descricao) {
         super.setDescricao(descricao);
         this.autor = autor;
     }
@@ -13,4 +13,6 @@ class Livro extends Produto {
     public String getDescricao() {
         return String.format("Descricao: %s", this.autor);
     }
+
+    
 }

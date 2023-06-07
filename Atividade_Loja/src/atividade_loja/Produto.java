@@ -1,10 +1,10 @@
 package atividade_loja;
 
-class Produto {
+public class Produto {
 
-    private String nomeloja;
-    private double preco;
-    private String descricao;
+    protected String nomeloja;
+    protected double preco;
+    protected String descricao;
 
     public String getNomeloja() {
         return nomeloja;

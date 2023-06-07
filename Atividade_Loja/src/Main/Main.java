@@ -1,4 +1,4 @@
-package atividade_loja;
+/*package atividade_loja;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -48,4 +48,33 @@ public class Main {
             System.out.println(produto.getDescricao());
         }
     }
+}*/
+
+package Main;
+
+import atividade_loja.Mouse;
+import atividade_loja.Livro;
+import atividade_loja.Livro;
+import atividade_loja.Produto;
+import atividade_loja.Produto;
+import java.util.ArrayList;
+
+public class Main {
+
+    public static void main(String[] args) {
+        ArrayList<Produto> carrinho = new ArrayList<>();
+        
+        Mouse m1 = new Mouse("Mouse Optico Logitech");
+        m1.setTipo("Gamer");
+        Livro l1 = new Livro("Aprendendo POO com Java");
+        //l1.setAutor("Davi");
+        
+        carrinho.add(m1);
+        carrinho.add(l1);
+        
+        for(Produto p : carrinho){
+            System.out.println(p.getDescricao());
+        }
+    }
+    
 }
