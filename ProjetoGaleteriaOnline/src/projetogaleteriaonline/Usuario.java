@@ -1,7 +1,7 @@
 package projetogaleteriaonline;
 
-
 public abstract class Usuario {
+
     private String username;
     private String senha;
 
@@ -13,24 +13,9 @@ public abstract class Usuario {
         this.senha = senha;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
     
     
-    
-    //Métodos
-    public abstract boolean verificar_login ();
+    private boolean verificarLogin() {
+        return false;
+    }
 }

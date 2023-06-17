@@ -1,20 +1,17 @@
-
 package babydev;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Scanner;
 
+public class Cliente extends Usuario {
 
-public class Cliente extends Usuario{
     private String nomeCliente;
     private String endereco;
+    private ArrayList<Pedido> pedidos = new ArrayList<>();
+    
 
     public Cliente() {
-    }
-
-    public Cliente(String nomeCliente, String endereco, String login, String senha, Date dt_registro, String email) {
-        super(login, senha, dt_registro, email);
-        this.nomeCliente = nomeCliente;
-        this.endereco = endereco;
     }
 
     public String getNomeCliente() {
@@ -33,34 +30,56 @@ public class Cliente extends Usuario{
         this.endereco = endereco;
     }
 
-    public Date getDt_registro() {
-        return dt_registro;
+    public Cliente(String nomeCliente, String endereco) {
+        this.nomeCliente = nomeCliente;
+        this.endereco = endereco;
     }
 
-    public void setDt_registro(Date dt_registro) {
-        this.dt_registro = dt_registro;
-    }
-    
-    //Métodos
-    public void AtualizarPerfil(){    
-    }
-    
     @Override
-     public boolean verificarLogin(String login, String senha){
-        if(super.getLogin() == login && super.getSenha() == senha){
-            return true;
-    }else{
-           return false; 
+    public boolean isPermissao() {
+        return false;
+    }
+
+    @Override
+    public boolean verificarLogin(String log, String sen) {
+        boolean verificar;
+        if ((Objects.equals(this.login, log)) && (Objects.equals(this.senha, sen))) {
+            verificar = true;
+        } else {
+            verificar = false;
         }
+        return verificar;
     }
-    
-    public String ImprimirInfo(){
-        return String.format("Nome: %s\n", this.nomeCliente, 
-                "Endereço: %s\n", this.endereco, 
-                "Data de registro: %s%s%s", this.dt_registro, 
-                "E-mail: %s", super.getEmail());
-    }
-    
+
     //public String visualizarPedido()
+    public void atualizarPerfil() {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("NOME: ");
+        this.nomeCliente = scan.next();
+        System.out.println("LOGIN: ");
+        this.login = scan.next();
+        System.out.println("SENHA: ");
+        this.senha = scan.next();
+        System.out.println("EMAIL: ");
+        this.email = scan.next();
+        System.out.println("ENDEREÇO: ");
+        this.endereco = scan.next();
+    }
     
+    public String inprimirInfo(){    
+        return String.format("NOME: " + this.nomeCliente
+                + " LOGIN: "  + super.login 
+                + " SENHA: " + super.senha
+                + " EMAIL: " + super.email 
+                + " ENDEREÇO: " + this.endereco);
+    }
+    
+    public String visualizarPedidos(){     
+        return String.format(login);
+    }    
+
+    public void adicionarPedido(Pedido novoPedido) {        
+    }
+
 }

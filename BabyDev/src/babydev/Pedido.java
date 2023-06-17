@@ -1,11 +1,15 @@
 package babydev;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
 public class Pedido {
     private String numPedido;
     private Date dtCriacao;
+    private int quantidade;
+    Cliente cliente = new Cliente();
+    Produto produto = new Produto();
 
     public Pedido() {
     }
@@ -31,11 +35,24 @@ public class Pedido {
         this.dtCriacao = dtCriacao;
     }
     
-    
-    
-    
-//    //Métodos
-//    public String imprimirInfo(){
-//        return String.format("", args)
-//    }
+    public void imprimirInfo() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String notaFiscal = "NOTA FISCAL\n";
+        notaFiscal += "--------------------------------------\n";
+        notaFiscal += "Data do Pedido: " + sdf.format(dtCriacao) + "\n";
+        notaFiscal += "Número do Pedido: " + numPedido + "\n";
+        notaFiscal += "Cliente: " + cliente.getNomeCliente() + "\n";
+        notaFiscal += "Endereço: " + cliente.getEndereco() + "\n";
+        notaFiscal += "Produto: " + produto.getNome() + "\n";
+        notaFiscal += "Valor Unitário: " + produto.getValor() + "\n";
+        notaFiscal += "Quantidade: " + quantidade + "\n";
+        notaFiscal += "Valor Total: " + calcularValorTotal() + "\n";
+        notaFiscal += "--------------------------------------\n";
+
+    }
+
+    private double calcularValorTotal() {
+        return (produto.getValor() * produto.getValor());
+    }
+                
 }

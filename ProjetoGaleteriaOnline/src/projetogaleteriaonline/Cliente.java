@@ -1,11 +1,11 @@
 package projetogaleteriaonline;
 
+public class Cliente extends Usuario {
 
-public class Cliente extends Usuario{
-   private String nome;
-   private String endereco;
-   private String email;
-   private String telefone;
+    private String nome;
+    private String endereco;
+    private String email;
+    private String telefone;
 
     public Cliente() {
     }
@@ -50,16 +50,32 @@ public class Cliente extends Usuario{
         this.telefone = telefone;
     }
 
-    //Métodos
-    private void cadastrarSe (){}
-    private void fazerLogin (){}
-    private void consultarMenu(){}
-    public String avaliar(){
-        return "Avaliação enviada. Obrigado pelo feedback!";
+    protected void cadastrar() {
+
     }
-    private String reclamar(){
-        return "Reclamação recebida. Você será redirecionado ao chat e será atendido por um de nossos funcionários.";
+
+    protected void fazerLogin() {
+
     }
-    private void cadastrarCartao (){}
-    private void efetuar_pagamento (){}
+
+    protected void consultarMenu() {
+
+    }
+
+    public void avaliar() {
+
+    }
+
+    public String reclamar() {
+
+        return "Reclamação encaminhada para um de nossos funcionários. Estamos redirecionado você para nosso chat";
+    }
+
+    protected void cadastrarCartao() {
+
+    }
+
+    protected void efetuarPagamento() {
+
+    }
 }

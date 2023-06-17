@@ -28,8 +28,7 @@ public class Produto {
         this.valor = valor;
     }
   
-  public String InfoProduto(){
-      return String.format("Nome: %s" + this.nome 
-              + "Valor: %f" + this.valor);
+   public String infoProduto() {
+        return String.format("Nome: %s \nValor: %f", this.nome, this.valor);
   }
 }

@@ -1,21 +1,29 @@
 package babydev;
 
-
 import java.util.Date;
-public class Usuario {
-    private String login;
-    private String senha;
-    Date dt_registro;
-    private String email;
+
+
+public abstract class Usuario {
+    protected String login;
+    protected String senha;
+    private Date dataRegistro;
+    protected String email;
+
+    private boolean permissao;
 
     public Usuario() {
     }
 
-    public Usuario(String login, String senha, Date dt_registro, String email) {
-        this.login = login;
-        this.senha = senha;
-        this.dt_registro = dt_registro;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setPermissao(boolean permissao) {
+        this.permissao = permissao;
     }
 
     public String getLogin() {
@@ -34,28 +42,16 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Date getDt_registro() {
-        return dt_registro;
+    public Date getDataRegistro() {
+        return dataRegistro;
     }
 
-    public void setDt_registro(Date dt_registro) {
-        this.dt_registro = dt_registro;
+    public void setDataRegistro(Date dataRegistro) {
+        this.dataRegistro = dataRegistro;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    public abstract boolean isPermissao();
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    
-  //Métodos
-    public boolean verificarLogin(String login, String senha){
-        if(this.login == login && this.senha == senha){
-            return true;
-    }else{
-           return false; 
-        }
-    }
+    public abstract boolean verificarLogin(String l, String s);
 }
+
